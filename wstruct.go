@@ -63,23 +63,15 @@ type TransferSplit struct {
 	TxKeyList  []string `json:"tx_key_list"`
 }
 
-// type Transfer struct {
-// 	Amount    uint   `json:"amount"`
-// 	Fee       uint   `json:"fee"`
-// 	Height    uint   `json:"height"`
-// 	Note      string `json:"note"`
-// 	PaymentId string `json:"payment_id"`
-// 	Timestamp uint   `json:"timestamp"`
-// 	Txid      string `json:"txid"`
-// 	Type      string `json:"type"`
-// }
-
 type IncomingTransfer struct {
 	Amount      uint64 `json:"amount,omitempty"`
 	Spent       bool   `json:"spent,omitempty"`
 	GlobalIndex uint64 `json:"global_index,omitempty"`
 	TxHash      string `json:"tx_hash,omitempty"`
 	TxSize      uint64 `json:"tx_size,omitempty"`
+}
+type IncomingTransferResponse struct {
+	Transfers []IncomingTransfer `json:"transfers"`
 }
 
 /***************************************/

@@ -70,13 +70,13 @@ func (c *WalletClient) GetTransferByTxId(txid string) (Transfer, error) {
 	}
 	return rep.Trade, nil
 }
-func (c *WalletClient) IncomingTransfers(transferType string) ([]IncomingTransfer, error) {
+func (c *WalletClient) IncomingTransfers(transferType string) (IncomingTransferResponse, error) {
 	req := struct {
 		TransferType string `json:"transfer_type"`
 	}{
 		transferType,
 	}
-	var rep []IncomingTransfer
+	var rep IncomingTransferResponse
 	if err := c.Wallet("incoming_transfers", req, &rep); err != nil {
 		return rep, err
 	}
