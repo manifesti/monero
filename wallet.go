@@ -49,8 +49,8 @@ func (c *WalletClient) TransferSplit(req TransferInput) (Transfer, error) {
 	return rep, nil
 }
 
-func (c *WalletClient) GetTransfers(req GetTransferInput) (Transfer, error) {
-	var rep Transfer
+func (c *WalletClient) GetTransfers(req GetTransferInput) (TransferResponse, error) {
+	var rep TransferResponse
 	if err := c.Wallet("get_transfers", req, &rep); err != nil {
 		return rep, err
 	}

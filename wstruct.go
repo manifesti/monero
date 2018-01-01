@@ -33,18 +33,26 @@ type Destination struct {
 	Address string `json:"address"`
 }
 
-type Transfer struct {
-	Fee    uint   `json:"fee,omitempty"`
-	TxHash string `json:"tx_hash,omitempty"`
-	TxKey  string `json:"tx_key,omitempty"`
+type TransferResponse struct {
+	In      []Transfer `json:"in, omitempty"`
+	Out     []Transfer `json:"out, omitempty"`
+	Pending []Transfer `json:"pending, omitempty"`
+	Failed  []Transfer `json:"failed, omitempty"`
+	Pool    []Transfer `json:"pool, omitempty"`
+}
 
-	Amount    uint64 `json:"amount,omitempty"`
-	Height    uint64 `json:"height,omitempty"`
-	Note      string `json:"note,omitempty"`
-	PaymentId string `json:"payment_id,omitempty"`
-	Timestamp int64  `json:"timestamp,omitempty"`
-	Txid      string `json:"txid,omitempty"`
-	Type      string `json:"type,omitempty"`
+type Transfer struct {
+	Fee          uint          `json:"fee,omitempty"`
+	TxHash       string        `json:"tx_hash,omitempty"`
+	TxKey        string        `json:"tx_key,omitempty"`
+	Destinations []Destination `json:"destinations,omitempty"`
+	Amount       uint64        `json:"amount,omitempty"`
+	Height       uint64        `json:"height,omitempty"`
+	Note         string        `json:"note,omitempty"`
+	PaymentID    string        `json:"payment_id,omitempty"`
+	Timestamp    int64         `json:"timestamp,omitempty"`
+	Txid         string        `json:"txid,omitempty"`
+	Type         string        `json:"type,omitempty"`
 }
 
 type TransferSplit struct {
