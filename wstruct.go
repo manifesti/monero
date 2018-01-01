@@ -34,11 +34,11 @@ type Destination struct {
 }
 
 type TransferResponse struct {
-	In      []Transfer `json:"in, omitempty"`
-	Out     []Transfer `json:"out, omitempty"`
-	Pending []Transfer `json:"pending, omitempty"`
-	Failed  []Transfer `json:"failed, omitempty"`
-	Pool    []Transfer `json:"pool, omitempty"`
+	In      []Transfer `json:"in,omitempty"`
+	Out     []Transfer `json:"out,omitempty"`
+	Pending []Transfer `json:"pending,omitempty"`
+	Failed  []Transfer `json:"failed,omitempty"`
+	Pool    []Transfer `json:"pool,omitempty"`
 }
 
 type Transfer struct {
@@ -74,7 +74,12 @@ type TransferSplit struct {
 // 	Type      string `json:"type"`
 // }
 
-type IncomingTransfers struct {
+type IncomingTransfer struct {
+	Amount      uint64 `json:"amount,omitempty"`
+	Spent       bool   `json:"spent,omitempty"`
+	GlobalIndex uint64 `json:"global_index,omitempty"`
+	TxHash      string `json:"tx_hash,omitempty"`
+	TxSize      uint64 `json:"tx_size,omitempty"`
 }
 
 /***************************************/
